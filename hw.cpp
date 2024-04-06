@@ -2,9 +2,7 @@
 #include <string>
  
 
-int main()
+int main(int argc, char* argv[])
 {
-    std::string st = "abc";
-    std::cin >> st;
-    std::cout << (st.find('s') != std::string::npos);    // 62 111110 3E
+    std::cout << argc << std::endl << argv[1];
 }

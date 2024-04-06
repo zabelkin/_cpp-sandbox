@@ -18,18 +18,18 @@ long count_code_lines(string);
 int main(int argc, char* argv[])
 {
     int total_files;
-    long total_lines; 
+    long total_code_lines {0};
     string str_path, working_path = filesystem::current_path().generic_string();
 
     working_path = working_path.substr(0, working_path.rfind('\\')); // cut file name
-    if (argc>1) working_path =  argv[1];
+    if (argc>1) working_path = argv[1];
 
     try {
         for (const auto& dirEntry : filesystem::recursive_directory_iterator(working_path)) {
             str_path = dirEntry.path().generic_string();
             if (is_countable_file(str_path)) {
                 total_files ++;
-                total_lines += count_code_lines(str_path);
+                total_code_lines += count_code_lines(str_path);
             }
         }
     }
@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
         cout << endl << "'" << working_path  << "' is not a valid path" << endl;
     }
     cout << endl << "--" << endl << "Total files: " << total_files << endl;
-    cout << "Total non-empty lines: " << total_lines << endl;
+    cout << "Total non-empty lines: " << total_code_lines << endl;
 }
 
 
@@ -55,11 +55,11 @@ bool is_countable_file(string file_path){
 
 // count lines with code, droppong empty ones
 long count_code_lines(string file_path){
-    ifstream file_handler(file_path);
     string a_line;
     long file_code_lines;
-    cout << ".";
+    ifstream file_handler(file_path);
     
+    cout << ".";
     while (getline(file_handler, a_line)) {
         if (a_line.length()>0) file_code_lines ++ ;
     }

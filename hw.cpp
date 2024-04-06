@@ -1,10 +1,10 @@
 #include <iostream>
-#include <format>
+#include <string>
  
+
 int main()
 {
-    int a{10};
-    int b{20};
-    int c{30};
-    std::cout << std::format("{0:} {0:b} {0:X}", 62);    // 62 111110 3E
+    std::string st = "abc";
+    std::cin >> st;
+    std::cout << (st.find('s') != std::string::npos);    // 62 111110 3E
 }

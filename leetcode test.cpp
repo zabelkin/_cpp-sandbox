@@ -1,31 +1,37 @@
 #include <iostream>
+#include <string>
+#include <vector>
 
-int main() {
-    std::cout << 11/10;
-}
+using namespace std;
+
 
 class Solution {
 public:
-    bool isPalindrome(int x) {
-        vector<int> digits;
-        int v_size;
+    string longestCommonPrefix(vector<string>& strs) {
+        string res = "";
+        bool char_check = true;
+        char a_char;
 
-        if (x<0) return false;
-        if (x==0) return true;
-        while (x>0) {
-            digits.push_back(x%10);
-            x /=10;
+        for(int i=0; i<=200 && char_check; i++) {
+            a_char=strs[0][i];
+            char_check=true;
+            for(string s: strs) {
+                char_check = char_check && (s[i]==a_char);
+                if (!char_check) {
+                    break;
+                } 
+            }
+            if (char_check) res.push_back(a_char);
         }
-        v_size = digits.size(); 
-        while (v_size>1) {
-            if (digits.front()!=digits.back())
-                return false;
-            cout << digits.front() << "-" <<  digits.back();
-            digits.erase(digits.cend());
-            digits.erase(digits.cbegin());
-            cout << ", " << digits.size();
-            v_size = digits.size();
-        }
-        return true;
+        return res;
     }
 };
+
+
+int main() {
+    Solution tst;
+    //vector<string> test_strings = {"flower","flow","flight"};
+    //vector<string> test_strings = {"f1lower","f1low","f2light"};
+    vector<string> test_strings = {"ab","ab","abc"};
+    cout << "The longest prefix: " << tst.longestCommonPrefix(test_strings);
+}

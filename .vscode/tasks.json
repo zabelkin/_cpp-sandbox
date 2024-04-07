@@ -9,6 +9,7 @@
                 "-O0",
                 "-g",
                 "${file}",
+                "-lsqlite3", 
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],

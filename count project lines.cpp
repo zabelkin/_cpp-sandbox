@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
     catch (...) {
         cout << endl << "'" << working_path  << "' is not a valid path" << endl;
     }
-    cout << endl << "--" << endl << "Total files: " << total_files << endl;
+    cout << endl << "--" << endl << "Path: " << working_path << endl << "Total files: " << total_files << endl;
     cout << "Total non-empty lines: " << total_code_lines << endl;
 }
 

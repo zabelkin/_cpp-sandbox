@@ -1,24 +1,31 @@
-// enviroment variables manipulation
+// practice
 
 #include <iostream>
 #include <string>
+#include <algorithm>
+#include <cmath>
+#include <numbers>
+#include <format>
 
 using namespace std;
 
 
-int main(int argc, char* argv[], char **envp)
+int main()
 {
-    char c_mode = 'y';
-    string s_str;
-
-    cout << "Looking at names (Y/n)?";
-    cin >> c_mode;
-    cout << "Enter lookup string:";
-    cin >> s_str;
-    
-    /* for (char **ptr_env=envp; *ptr_env!=NULL; ptr_env++) {
-        string s_env = {*ptr_env};
-        cout << s_env << endl;
-    } */
-
+    string str_radius;
+    float radius (10);
+    try {
+/*         cout << "Enter radius (float):";
+        getline(cin, str_radius);
+         str_radius.erase( \
+            remove(str_radius.begin(), str_radius.end(), ' '), \
+            str_radius.end()); 
+        replace(str_radius.begin(), str_radius.end(), ',', '.');
+        radius = stof(str_radius); */
+        cout << format("r= {}, cir. square= {:.2f}", radius, std::numbers::pi*pow(radius,2 )) << endl;
+    }
+    catch(exception e) {
+        cout << "Wrong input. A number is expected. Halting..." << endl;
+    }
+    return 0;
 }

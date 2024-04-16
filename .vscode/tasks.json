@@ -7,10 +7,10 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-O0",
-                "-std=c++20",
-                "-g",
+                "-std=c++20", // for advanceed libraries
+                "-g", // debegging info
                 "${file}",
-                "-lsqlite3", 
+                // "-lsqlite3", // db driver placeholder 
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],

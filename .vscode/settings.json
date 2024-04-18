@@ -56,5 +56,6 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "cstdarg": "cpp"
-    }
+    },
+    "workbench.colorCustomizations": {}
 }

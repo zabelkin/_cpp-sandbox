@@ -6,6 +6,7 @@
 *.lo
 *.o
 *.obj
+build*
 
 # Precompiled Headers
 *.gch
@@ -32,5 +33,5 @@
 *.app
 
 # VS utilities
-#.vscode
-logs
+#.vscode # leave it for pet-project specific build settings
+logs*
